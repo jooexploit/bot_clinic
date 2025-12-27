@@ -1,5 +1,51 @@
 {
     "bookings": [],
-    "pendingPayments": [],
+    "pendingPayments": [
+        {
+            "id": 1,
+            "chatId": "201090952790@s.whatsapp.net",
+            "patientName": "يوسف",
+            "patientPhone": "01090952790",
+            "doctorId": 1,
+            "doctorName": "د. محمد العتيبي",
+            "doctorSpecialty": "باطنية",
+            "visitType": "new",
+            "price": 10,
+            "status": "payment_submitted",
+            "paymentProof": "image_received",
+            "createdAt": "2025-12-27T14:37:02.429Z",
+            "updatedAt": "2025-12-27T14:37:37.941Z"
+        },
+        {
+            "id": 2,
+            "chatId": "240917902585982@lid",
+            "patientName": "يوسف",
+            "patientPhone": "0912345678",
+            "doctorId": 1,
+            "doctorName": "د. محمد العتيبي",
+            "doctorSpecialty": "باطنية",
+            "visitType": "followup",
+            "price": 10,
+            "status": "awaiting_payment",
+            "paymentProof": null,
+            "createdAt": "2025-12-27T14:40:15.937Z",
+            "updatedAt": "2025-12-27T14:40:15.937Z"
+        },
+        {
+            "id": 3,
+            "chatId": "220753249177809@lid",
+            "patientName": "محمد عبد الجواد",
+            "patientPhone": "0987665444",
+            "doctorId": 1,
+            "doctorName": "د. محمد العتيبي",
+            "doctorSpecialty": "باطنية",
+            "visitType": "new",
+            "price": 10,
+            "status": "payment_submitted",
+            "paymentProof": "image_received",
+            "createdAt": "2025-12-27T14:57:53.292Z",
+            "updatedAt": "2025-12-27T14:58:03.943Z"
+        }
+    ],
     "nextBookingId": 4
 }

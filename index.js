@@ -8,6 +8,8 @@ const {
 const pino = require("pino");
 const qrcode = require("qrcode-terminal");
 const cron = require("node-cron");
+const fs = require("fs");
+const path = require("path");
 const config = require("./config");
 const db = require("./database");
 
@@ -715,7 +717,6 @@ function generatePaymentMessage(session, bookingId) {
     msg +=
       formatMessage(MSG.PAYMENT_STC_FORMAT, {
         name: syriatel.name,
-        number: syriatel.number,
       }) + "\n\n";
   }
 
@@ -2553,15 +2554,12 @@ ADMIN_NUMBERS: [
           text: generatePaymentMessage(session, pendingPayment.id),
         });
 
-        // Send payment number separately for easy copying
-        if (config.PAYMENT_METHODS.SYRIATEL_CASH?.enabled) {
+        // Send QR code image for payment
+        const qrCodePath = path.join(__dirname, "qrcode_payment.jpeg");
+        if (fs.existsSync(qrCodePath)) {
           await sock.sendMessage(chatId, {
-            text: `${config.PAYMENT_METHODS.SYRIATEL_CASH.number}`,
-          });
-        }
-        if (config.PAYMENT_METHODS.BANK_TRANSFER?.enabled) {
-          await sock.sendMessage(chatId, {
-            text: `${config.PAYMENT_METHODS.BANK_TRANSFER.iban}`,
+            image: fs.readFileSync(qrCodePath),
+            caption: "📱 امسح هالكود للدفع",
           });
         }
 
