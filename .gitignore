@@ -1,4 +1,4 @@
 node_modules/
 auth_info/
-doctor.json
+doctors.json
 bookings.json
